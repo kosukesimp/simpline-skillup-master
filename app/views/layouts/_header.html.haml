@@ -1,0 +1,14 @@
+.navbar.nabvar-default
+  .container
+    .navbar-header.top
+      =link_to 'Simpline スキルアップ研修', root_url,class: "navbar-brand"
+    -if logged_in?
+      %ul.nav.navbar-nav
+        %li= link_to"ユーザー一覧", users_path
+      %ul.nav.navbar-nav.navbar-right
+        %li= link_to current_user.name, current_user
+        %li= link_to "ログアウト", sessions_path, method: :delete
+    - else
+      %ul.nav.navbar-nav.navbar-right
+        %li= link_to "会員登録", new_registration_url
+        %li= link_to "ログイン", new_sessions_url

@@ -1,0 +1,18 @@
+.col-sm-12.text-center
+  %h1　二重敬語問題
+
+  %table
+    %thead
+      %tr
+    .col-sm-6.text-cente
+      %tbody
+        - @posts.each do |post|
+          %tr
+            %td= post.id
+            %td= link_to '問題を解く', post
+            /%td= link_to 'Edit', edit_post_path(post)
+            /%td= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+/= link_to 'New Post', new_post_path

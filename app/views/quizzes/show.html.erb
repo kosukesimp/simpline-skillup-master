@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <% @quiz.answers.each do |answer| %>
+    <div class="text-center">
+      <p>例文：<%= @videos.find_by_id(answer.question.to_i).example %>
+      <p>解答：<%= answer.answer %>
+      <% if answer.answer == @videos.find_by_id(answer.question.to_i).sugested %>
+        <p class="correct">○正解
+      <% else %>
+        <p class="incorrect"> ×不正解<span>(正解：<%= @videos.find_by_id(answer.question.to_i).sugested %>)</span>
+      <% end %>
+      <hr>
+    </div>
+  <% end %>
+</div>

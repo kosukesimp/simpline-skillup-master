@@ -1,0 +1,18 @@
+= form_for @post do |f|
+  - if @post.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+      %ul
+        - @post.errors.full_messages.each do |message|
+          %li= message
+
+  = f.nested_fields_for :videos do |video|
+    .col-sm-12
+      = video.label :example,"例文", class: "control-label"
+      = video.text_field :example, class: "form-control"
+      = video.label :sugested,"模範解答", class: "control-label"
+      = video.text_field :sugested, class: "form-control"
+      %hr
+  .text-center
+    = f.add_nested_fields_link :videos, 'Add new', class: 'btn btn-primary', role: 'button'
+    = f.submit "問題を登録する",class: "btn btn-success"

@@ -1,0 +1,12 @@
+.col-xs-8#users-content
+  .list-group
+    .list-group-item.user-list
+      %h2 ユーザー一覧
+  %br
+    = div_for @users, class: "list-item col-xs-3 text-center" do |u|
+      .users
+        = link_to u.name, user_path(u)
+        %h4.user        
+          %span.user-name
+       
+      

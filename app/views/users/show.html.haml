@@ -1,0 +1,28 @@
+.col-xs-8#users-content
+  .user-info
+    %span.user-name
+      = @user.name
+    %span.user-id
+      @#{@user.name}
+    %hr
+  .wrapper  
+    - @user.quizzes.first.answers.each do |answer|
+      =answer.answer
+      %p
+        例文：
+        = @videos.find_by_id(answer.question.to_i).example
+      %p
+        回答：
+        =answer.answer
+      - if answer.answer == @videos.find_by_id(answer.question.to_i).sugested
+        %p.correct
+          〇正解
+      - else
+        %p.incorrect
+          ×不正解（正解：#{ @videos.find_by_id(answer.question.to_i).sugested}
+      %hr
+
+
+
+
+

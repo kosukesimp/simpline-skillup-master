@@ -1,0 +1,28 @@
+#registrations-new
+  .col-xs-6.col-xs-offset-3.left-content.text-center
+    %h2 Simpline スキルアップ研修　二重敬語
+    
+    - flash.each do |type, msg|
+      %div{class: "alert-#{type}"}= msg
+
+  .col-xs-6.col-xs-offset-3.right-content
+    = form_for @user, url:registrations_path, method: :post do |f| 
+      %h2
+        登録する
+      - @user.errors.each do |lattr, message|
+        .alert.alert-danger= message
+      .form-group
+        = f.label :name,"ユーザーID: 表示名です。名前を入れてください。" , class: "control-label"
+        = f.text_field :name, class:"form-control"
+      .form-group
+        = f.label :email, "メールアドレス: シンプラインのもの", class: "control-label"
+        = f.text_field :email, class: "form-control"
+      .form-group
+        = f.label :password,"パスワード: 6文字以上", class:"control-label"
+        = f.password_field :password, class:"form-control"
+      .form-group
+        = f.label :password_confirmation, "確認用パスワード: 6文字以上",class: "control-label"
+        = f.password_field :password_confirmation, class: "form-control"
+      = f.submit"登録する", class:"btn btn-primary"
+      = link_to "ログインする", new_sessions_path, class: "login pull-right"
+      .clear
