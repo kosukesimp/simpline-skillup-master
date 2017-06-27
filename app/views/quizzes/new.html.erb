@@ -1,12 +1,18 @@
 <div class="wrapper">
   <div>
+  <h1>スキルアップ確認テスト　二重敬語</h1>
+  <p class="rei">例題<br>「お承りいたしました」<br>
+  ×「お【敬】・承り【敬】・いたしました【敬】」<br>
+　↓一つに変えます<br>
+  <span class="kotae">〇「承りました」</span><br>
+　このように問題を問いてください。</p>
     <%= form_for @quiz do |f| %>
     <% @post.videos.each do |video| %>
-        <div>
+        <div class="mondai">
         <%= video.example %>
         <%= f.nested_fields_for :answers do |ff| %>
           <%= ff.hidden_field :question, value: video.id %>
-          <%= ff.text_field :answer, class: "form-control", placeholder: "回答:回答者が記入します" %>
+          <%= ff.text_field :answer, class: "form-control", placeholder: "回答を記入してください" %>
         <% end %>
         <hr>
         </div>

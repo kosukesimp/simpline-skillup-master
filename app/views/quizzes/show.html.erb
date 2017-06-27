@@ -1,4 +1,11 @@
 <div class="wrapper">
+  <h1>スキルアップ確認テスト　二重敬語</h1>
+  <p>例題<br>「お承りいたしました」<br>
+  ×「お【敬】・承り【敬】・いたしました【敬】」<br>
+　↓一つに変えます<br>
+　〇「承りました」<br>
+　このように問題を問いてください。</p>
+
   <% @quiz.answers.each do |answer| %>
     <div class="text-center">
       <p>例文：<%= @videos.find_by_id(answer.question.to_i).example %>

@@ -12,7 +12,7 @@
       - @user.errors.each do |lattr, message|
         .alert.alert-danger= message
       .form-group
-        = f.label :name,"ユーザーID: 表示名です。名前を入れてください。" , class: "control-label"
+        = f.label :name,"入社した西暦/月/名前をローマ字で記入 例：2017/07/takahashi　" , class: "control-label"
         = f.text_field :name, class:"form-control"
       .form-group
         = f.label :email, "メールアドレス: シンプラインのもの", class: "control-label"
